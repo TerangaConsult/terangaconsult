@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const TestimonialsSection = () => {
@@ -24,27 +23,27 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-24 md:py-32 bg-white">
       <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight mb-4">
+        <div className="text-center mb-14">
+          <h2 className="text-2xl md:text-3xl font-sans font-semibold tracking-tight mb-3 text-hotel-navy">
             Ce que disent nos clients
           </h2>
-          <p className="text-muted-foreground md:w-2/3 mx-auto">
+          <p className="text-hotel-navy/60 md:w-2/3 mx-auto text-base">
             Découvrez les témoignages de nos clients satisfaits.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white p-8 rounded-lg shadow-md border border-border/50 flex flex-col">
-              <div className="mb-6 flex-grow">
-                <div className="text-6xl text-hotel-gold/30 font-serif -ml-4 -mt-8">"</div>
-                <p className="text-muted-foreground italic">{testimonial.quote}</p>
+            <div key={index} className="p-7 rounded-xl border border-hotel-gold/60 shadow-sm flex flex-col bg-white transition-all duration-200 ease-out hover:scale-101 hover:-translate-y-0.5 hover:shadow-lg hover:border-hotel-gold/80">
+              <div className="mb-5 flex-grow">
+                <div className="text-4xl text-hotel-gold/40 font-sans -ml-2 -mt-4">"</div>
+                <p className="italic text-hotel-navy/90 font-sans text-base">{testimonial.quote}</p>
               </div>
-              <div className="border-t border-border pt-6">
-                <p className="font-semibold">{testimonial.name}</p>
-                <p className="text-sm text-muted-foreground">
+              <div className="border-t border-hotel-gold pt-5">
+                <p className="font-sans font-semibold text-hotel-gold text-base">{testimonial.name}</p>
+                <p className="text-sm text-hotel-navy/60 font-sans">
                   {testimonial.role}, {testimonial.hotel}
                 </p>
               </div>

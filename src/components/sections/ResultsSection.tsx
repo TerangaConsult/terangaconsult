@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const ResultsSection = () => {
@@ -26,27 +25,27 @@ const ResultsSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-24 md:py-32 bg-white">
       <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight mb-4">
+        <div className="text-center mb-14">
+          <h2 className="text-2xl md:text-3xl font-sans font-semibold tracking-tight mb-3 text-hotel-navy">
             Des résultats concrets pour nos clients
           </h2>
-          <p className="text-muted-foreground md:w-2/3 mx-auto">
+          <p className="text-hotel-navy/60 md:w-2/3 mx-auto text-base">
             Voici ce que nos clients ont obtenu en moyenne après avoir mis en place nos solutions.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {results.map((result, index) => (
             <div 
               key={index}
-              className="bg-gradient-to-br bg-white rounded-lg shadow-md border border-border/50 p-8 text-center hover:shadow-lg transition-all"
+              className="bg-white rounded-xl border" style={{borderColor:'#dfe9ff', boxShadow:'0 1px 8px #dfe9ff', transition:'all 0.3s'}}
             >
-              <div className={`text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r ${result.color} bg-clip-text text-transparent`}>
+              <div className={`text-4xl md:text-5xl font-sans font-bold mb-2`} style={{color: index % 2 === 0 ? '#1A2341' : '#dfe9ff'}}>
                 {result.value}
               </div>
-              <p className="text-muted-foreground">{result.label}</p>
+              <p className="text-base text-hotel-navy/60 font-sans">{result.label}</p>
             </div>
           ))}
         </div>

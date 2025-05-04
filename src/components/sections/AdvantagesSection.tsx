@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { CheckCircle } from 'lucide-react';
 
@@ -12,30 +11,34 @@ const AdvantagesSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-hotel-darkBlue text-white">
+    <section className="py-24 md:py-32 bg-hotel-navy text-white">
       <div className="container">
-        <div className="flex flex-col md:flex-row md:items-center gap-12">
+        <div className="flex flex-col md:flex-row md:items-center gap-16">
           <div className="md:w-1/2">
-            <h2 className="text-3xl font-bold tracking-tight mb-6">Pourquoi choisir nos services?</h2>
-            <ul className="space-y-4">
+            <h2 className="text-2xl md:text-3xl font-sans font-semibold tracking-tight mb-6 text-white">
+              Pourquoi choisir nos services ?
+            </h2>
+            <ul className="space-y-3">
               {advantages.map((advantage, index) => (
-                <li key={index} className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-hotel-gold mr-3 flex-shrink-0 mt-0.5" />
-                  <span className="text-lg">{advantage}</span>
+                <li
+                  key={index}
+                  tabIndex={0}
+                  aria-label={advantage}
+                  className="flex items-center border border-hotel-gold/60 rounded-lg p-3 bg-transparent shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-hotel-gold hover:border-hotel-gold/90 transition-colors"
+                >
+                  <CheckCircle className="h-5 w-5 text-hotel-gold mr-2 flex-shrink-0" aria-hidden="true" />
+                  <span className="text-base text-white font-sans">{advantage}</span>
                 </li>
               ))}
             </ul>
           </div>
-          
-          <div className="md:w-1/2 bg-hotel-blue/30 p-8 rounded-xl">
-            <h3 className="text-xl font-semibold mb-4">Notre promesse</h3>
-            <p className="mb-4">
-              Nous comprenons les défis spécifiques auxquels font face les établissements hôteliers au Sénégal. 
-              Notre approche combine expertise locale et meilleures pratiques internationales.
+          <div className="md:w-1/2 bg-hotel-navy/60 rounded-xl p-8 border border-hotel-gold/30">
+            <h3 className="text-xl font-semibold mb-4 text-hotel-gold">Nos engagements</h3>
+            <p className="text-white/90 mb-4">
+              Nous nous engageons à fournir un service personnalisé et des solutions concrètes adaptées aux défis spécifiques de votre établissement.
             </p>
-            <p>
-              Avec nos solutions, vous reprenez le contrôle de votre visibilité en ligne et maximisez vos revenus 
-              en réduisant votre dépendance aux plateformes de réservation externes.
+            <p className="text-white/90">
+              Notre équipe d'experts combine des compétences locales et internationales pour vous offrir le meilleur de l'innovation hôtelière.
             </p>
           </div>
         </div>

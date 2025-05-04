@@ -1,63 +1,79 @@
-
 import React from 'react';
-import { Globe, Search, CheckCircle, Award, BarChart2, Settings } from 'lucide-react';
+import { Briefcase, Star, Award, GraduationCap, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ServicesSection = () => {
   const services = [
     {
-      icon: <Globe className="h-10 w-10 text-hotel-blue" />,
-      title: "Création de landing page optimisée",
-      description: "Sites web modernes, rapides et optimisés pour les conversions"
+      title: "Stratégie digitale hôtelière",
+      description: "Audit de votre présence en ligne et plan d'action stratégique pour améliorer votre visibilité.",
+      icon: <Briefcase />,
+      link: "/services#strategie"
     },
     {
-      icon: <CheckCircle className="h-10 w-10 text-hotel-blue" />,
-      title: "Système de réservation en ligne",
-      description: "Solution simple et efficace pour vos clients"
+      title: "Optimisation des avis clients",
+      description: "Gestion de votre e-réputation et stratégies pour obtenir des avis positifs authentiques.",
+      icon: <Star />,
+      link: "/services#reputation"
     },
     {
-      icon: <Search className="h-10 w-10 text-hotel-blue" />,
-      title: "Optimisation SEO locale",
-      description: "Positionnez-vous en tête des recherches locales"
-    },
-    {
-      icon: <Award className="h-10 w-10 text-hotel-blue" />,
-      title: "Gestion de la présence Google",
-      description: "Fiche Google My Business optimisée et suivi des avis"
-    },
-    {
-      icon: <BarChart2 className="h-10 w-10 text-hotel-blue" />,
-      title: "Stratégie de contenu",
-      description: "Photos, descriptions et contenus authentiques qui valorisent votre établissement"
-    },
-    {
-      icon: <Settings className="h-10 w-10 text-hotel-blue" />,
       title: "Formation du personnel",
-      description: "Maîtrise des outils numériques pour pérenniser les résultats"
+      description: "Ateliers personnalisés pour développer les compétences digitales de votre équipe.",
+      icon: <GraduationCap />,
+      link: "/services#formation"
+    },
+    {
+      title: "Audit qualité",
+      description: "Évaluation complète de votre établissement selon les standards internationaux.",
+      icon: <Award />,
+      link: "/services#audit"
     }
   ];
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-24 md:py-32 bg-white">
       <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight mb-4">
+        <div className="text-center mb-14">
+          <h2 className="text-2xl md:text-3xl font-sans font-semibold tracking-tight mb-3 text-hotel-navy">
             Nos services pour transformer votre présence numérique
           </h2>
-          <p className="text-muted-foreground md:w-2/3 mx-auto">
+          <p className="text-hotel-navy/60 md:w-2/3 mx-auto text-base">
             Des solutions complètes adaptées aux besoins spécifiques des établissements hôteliers au Sénégal.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {services.map((service, index) => (
-            <div key={index} className="flex flex-col items-center text-center p-6">
-              <div className="rounded-full bg-muted p-4 mb-4">
-                {service.icon}
+            <div
+              key={index}
+              tabIndex={0}
+              aria-label={service.title}
+              className="flex flex-col items-center text-center p-6 bg-white rounded-xl border shadow-sm transition-shadow hover:shadow-md"
+              style={{borderColor:'#dfe9ff'}}
+            >
+              <div className="mb-3" aria-hidden="true">
+                {React.cloneElement(service.icon, { className: 'h-7 w-7', style: {color:'#dfe9ff'} })}
               </div>
-              <h3 className="font-semibold text-xl mb-2">{service.title}</h3>
-              <p className="text-muted-foreground">{service.description}</p>
+              <h3 className="font-sans font-medium text-base mb-1 text-hotel-navy">{service.title}</h3>
+              <p className="text-sm text-hotel-navy/60 mb-3 font-sans">{service.description}</p>
+              
+              <Link 
+                to={service.link} 
+                className="mt-auto flex items-center text-sm text-hotel-gold hover:text-hotel-navy transition-colors"
+              >
+                En savoir plus <ArrowRight className="ml-1 h-3 w-3" />
+              </Link>
             </div>
           ))}
+        </div>
+        
+        <div className="mt-16 text-center">
+          <Link 
+            to="/services" 
+            className="inline-flex items-center px-6 py-3 bg-hotel-navy text-white rounded-lg hover:bg-hotel-navy/90 transition-colors"
+          >
+            Tous nos services <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>

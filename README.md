@@ -71,3 +71,51 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## Formulaire de contact avec Nodemailer (Netlify Functions)
+
+1. Créez le dossier `/netlify/functions/` à la racine du projet.
+2. Ajoutez un fichier `sendMail.js` (voir exemple ci-dessous).
+3. Installez `nodemailer` dans le projet :
+   ```bash
+   npm install nodemailer
+   ```
+4. Configurez un mot de passe d'application Gmail (voir documentation Google).
+5. Dans votre formulaire React, envoyez les données en POST vers `/.netlify/functions/sendMail`.
+6. Déployez sur Netlify.
+
+**Exemple de fonction serverless :**
+```js
+const nodemailer = require('nodemailer');
+
+exports.handler = async function(event, context) {
+  if (event.httpMethod !== 'POST') {
+    return { statusCode: 405, body: 'Méthode non autorisée' };
+  }
+  const { nom, email, message } = JSON.parse(event.body);
+
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'votre-adresse@gmail.com',
+      pass: 'votre-mot-de-passe-application',
+    },
+  });
+
+  try {
+    await transporter.sendMail({
+      from: email,
+      to: 'votre-adresse@gmail.com',
+      subject: `Nouveau message de ${nom}`,
+      text: message,
+    });
+    return { statusCode: 200, body: JSON.stringify({ success: true }) };
+  } catch (err) {
+    return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
+  }
+};
+```
+
+**N'oubliez pas de remplacer les emails et mots de passe par vos informations.**
+
+Pour toute question, contactez le développeur du projet.

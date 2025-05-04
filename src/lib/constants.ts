@@ -1,8 +1,7 @@
-
 export const COMPANY_INFO = {
-  name: "HotelierConsulting",
+  name: "TerangaConsult",
   phone: "+221 77 123 45 67",
-  email: "contact@hotelconsulting.sn",
+  email: "contact@terangaconsult.com",
   address: "123 Rue du Commerce, Dakar, Sénégal",
   openingHours: {
     weekdays: "9h - 18h",
@@ -10,15 +9,15 @@ export const COMPANY_INFO = {
     sunday: "Fermé"
   },
   social: {
-    facebook: "https://facebook.com/hotelierconsulting",
-    instagram: "https://instagram.com/hotelierconsulting",
-    linkedin: "https://linkedin.com/company/hotelierconsulting",
-    twitter: "https://twitter.com/hotelierconsulting"
+    facebook: "https://facebook.com/terangaconsult",
+    instagram: "https://instagram.com/terangaconsult",
+    linkedin: "https://linkedin.com/company/terangaconsult",
+    twitter: "https://twitter.com/terangaconsult"
   }
 };
 
 export const SITE_CONFIG = {
-  metaTitle: "HotelierConsulting - Consulting hôtelier et marketing digital au Sénégal",
+  metaTitle: "TerangaConsult - Consulting hôtelier et marketing digital au Sénégal",
   metaDescription: "Solutions sur mesure pour augmenter la visibilité en ligne et les réservations directes de votre établissement hôtelier au Sénégal."
 };
 

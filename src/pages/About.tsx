@@ -1,154 +1,239 @@
+import React, { useState, useEffect } from "react";
+import { FaQuoteLeft, FaUserTie, FaHotel, FaHandshake, FaAward, FaLightbulb, FaShieldAlt, FaUsers, FaChartLine, FaStar, FaUserGraduate, FaBullhorn } from "react-icons/fa";
+import Layout from "@/components/layout/Layout";
+import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
-import React from 'react';
-import Layout from '@/components/layout/Layout';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Globe, Award, Users } from 'lucide-react';
+const timeline = [
+  { year: "2018", title: "Création", desc: "Fondation du cabinet par Safiya Diop, experte en hôtellerie.", icon: <FaUserTie className="text-hotel-gold text-2xl" /> },
+  { year: "2019", title: "Premiers succès", desc: "Accompagnement de nos premiers établissements partenaires.", icon: <FaHotel className="text-hotel-gold text-2xl" /> },
+  { year: "2021", title: "Croissance", desc: "Équipe élargie et nouveaux services digitaux.", icon: <FaUsers className="text-hotel-gold text-2xl" /> },
+  { year: "2024", title: "Référence", desc: "Cabinet reconnu pour l'excellence et l'innovation au Sénégal.", icon: <FaAward className="text-hotel-gold text-2xl" /> },
+];
+
+const valeurs = [
+  { label: "Excellence", icon: <FaAward />, desc: "Nous visons l'excellence dans chaque mission." },
+  { label: "Engagement", icon: <FaHandshake />, desc: "Un accompagnement sur-mesure et durable." },
+  { label: "Innovation", icon: <FaLightbulb />, desc: "Des solutions créatives et adaptées à chaque client." },
+  { label: "Intégrité", icon: <FaShieldAlt />, desc: "Transparence et éthique au cœur de notre démarche." },
+];
+
+const equipe = [
+  { nom: "Safiya Diop", poste: "Fondatrice & CEO", expertise: "Stratégie hôtelière, digital, formation", photo: "/placeholder.svg" },
+  { nom: "Mamadou Ndiaye", poste: "Consultant Senior", expertise: "Gestion opérationnelle, revenue management", photo: "/placeholder.svg" },
+  { nom: "Awa Ba", poste: "Responsable Digital", expertise: "E-réputation, marketing digital", photo: "/placeholder.svg" },
+];
+
+const expertises = [
+  { label: "Stratégie digitale", icon: <FaChartLine /> },
+  { label: "E-réputation", icon: <FaStar /> },
+  { label: "Formation", icon: <FaUserGraduate /> },
+  { label: "Consulting", icon: <FaLightbulb /> },
+  { label: "Marketing", icon: <FaBullhorn /> },
+  { label: "Gestion Hôtelière", icon: <FaHotel /> },
+];
+
+const temoignages = [
+  {
+    citation: "Un vrai partenaire qui nous a permis de développer notre visibilité internationale.",
+    nom: "Ahmed Sow",
+    poste: "Directeur, Baobab Resort"
+  },
+  {
+    citation: "L'équipe a transformé notre approche du digital et boosté nos réservations.",
+    nom: "Marie Gomis",
+    poste: "Directrice Marketing, Palm Resort"
+  }
+];
+
+const partenaires = [
+  { nom: "Fédération Sénégalaise du Tourisme", type: "Institutionnel", logo: "/placeholder.svg" },
+  { nom: "Ecole Hôtelière de Dakar", type: "Formation", logo: "/placeholder.svg" },
+  { nom: "Africa Digital Network", type: "Digital", logo: "/placeholder.svg" },
+  { nom: "Consortium Hôtelier du Sénégal", type: "Associatif", logo: "/placeholder.svg" },
+];
 
 const About = () => {
-  const team = [
-    {
-      name: "Amadou Diop",
-      role: "Fondateur & Stratège Digital",
-      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY0MjUzMjcyOA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300",
-      bio: "Avec plus de 15 ans d'expérience dans le marketing digital et l'hôtellerie au Sénégal et en Europe, Amadou a fondé HotelierConsulting pour aider les établissements africains à développer leur présence en ligne."
-    },
-    {
-      name: "Fatou Ndiaye",
-      role: "Consultante SEO & Content",
-      image: "https://images.unsplash.com/photo-1589156191108-c762ff4b96ab?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8YWZyaWNhbiB3b21hbnx8fHx8fDE2NDI1MzI3ODA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300",
-      bio: "Spécialiste en référencement et en création de contenu, Fatou s'assure que nos clients soient visibles sur les moteurs de recherche avec des contenus authentiques et optimisés."
-    },
-    {
-      name: "Omar Sall",
-      role: "Développeur Web & Solutions de Réservation",
-      image: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8YWZyaWNhbiBtYW58fHx8fHwxNjQyNTMyODE5&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300",
-      bio: "Expert en développement web et en système de réservation, Omar crée des sites web performants et des solutions techniques adaptées aux besoins spécifiques de chaque établissement."
-    }
-  ];
-
-  const values = [
-    {
-      title: "Expertise locale",
-      description: "Connaissance approfondie du marché touristique sénégalais et des enjeux spécifiques à la région",
-      icon: Globe
-    },
-    {
-      title: "Excellence et résultats",
-      description: "Focus sur des stratégies qui apportent des résultats mesurables et un retour sur investissement concret",
-      icon: Award
-    },
-    {
-      title: "Partenariat à long terme",
-      description: "Nous construisons des relations durables avec nos clients pour assurer un succès continu",
-      icon: Users
-    }
-  ];
+  const [clients, setClients] = useState(0);
+  const [hotels, setHotels] = useState(0);
+  useEffect(() => {
+    let c = 0, h = 0;
+    const interval = setInterval(() => {
+      if (c < 50) setClients(++c);
+      if (h < 30) setHotels(++h);
+    }, 20);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <Layout>
-      <div className="bg-gradient-to-b from-hotel-blue/10 to-background pt-16 pb-12">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              À propos de nous
-            </h1>
-            <p className="text-muted-foreground text-lg">
-              Votre partenaire de confiance pour la transformation digitale des établissements hôteliers au Sénégal
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <section className="py-16 bg-background">
-        <div className="container">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6">
-              Notre histoire et notre mission
-            </h2>
-            <p className="text-lg mb-6">
-              HotelierConsulting est né d'un constat simple : de nombreux établissements hôteliers au Sénégal disposent d'un potentiel exceptionnel mais manquent de visibilité en ligne, ce qui limite considérablement leur capacité à attirer des clients directs.
-            </p>
-            <p className="text-lg mb-6">
-              Fondée en 2018 par Amadou Diop, notre agence s'est fixée pour mission d'aider les hôtels, lodges et maisons d'hôtes sénégalais à développer leur présence numérique, à augmenter leurs réservations directes et à réduire leur dépendance aux intermédiaires.
-            </p>
-            <p className="text-lg mb-6">
-              Notre équipe combine une connaissance approfondie du marché hôtelier sénégalais avec une expertise pointue des dernières technologies et stratégies de marketing digital. Cette double compétence nous permet de proposer des solutions parfaitement adaptées aux réalités locales et aux besoins spécifiques de chaque établissement.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-muted/30">
-        <div className="container">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-12 text-center">
-            Notre équipe
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {team.map((member) => (
-              <div key={member.name} className="bg-white rounded-xl shadow-md overflow-hidden">
-                <div className="aspect-square">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-bold text-xl mb-1">{member.name}</h3>
-                  <p className="text-hotel-blue mb-4">{member.role}</p>
-                  <p className="text-muted-foreground">{member.bio}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-background">
-        <div className="container">
-          <div className="max-w-3xl mx-auto mb-12 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
-              Nos valeurs
-            </h2>
-            <p className="text-muted-foreground">
-              Les principes qui guident notre travail et notre relation avec nos clients
-            </p>
-          </div>
+    <>
+      <Helmet>
+        <title>À propos - TerangaConsult</title>
+        <meta name="description" content="Découvrez l'histoire, les valeurs et l'équipe de TerangaConsult, cabinet de consulting hôtelier et digital au Sénégal." />
+      </Helmet>
+      <Layout>
+        <main className="bg-hotel-navy text-white font-sans">
+          {/* 1. Introduction */}
+          <section
+            className="relative min-h-[60vh] flex items-center justify-center overflow-hidden"
+            style={{
+              background: "linear-gradient(120deg, #1a2342cc 70%, #c4a77522 100%), url('/assets/terrasse-pool.jpg') center/cover no-repeat",
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="relative z-10 text-center py-20 max-w-3xl mx-auto"
+            >
+              <h1 className="font-playfair text-4xl md:text-5xl text-hotel-gold mb-4 tracking-tight drop-shadow-lg animate-fade-in">À propos</h1>
+              <p className="text-lg md:text-xl font-light text-white/90 mb-2">
+                TerangaConsult, c'est l'expertise, la passion et l'innovation au service de l'hôtellerie sénégalaise. Notre mission : accompagner les établissements vers l'excellence, la rentabilité et la reconnaissance internationale.
+              </p>
+              <p className="text-base text-white/70 max-w-2xl mx-auto mb-6">
+                Une équipe dévouée, des méthodes éprouvées et une approche personnalisée pour répondre aux défis uniques de chaque établissement.
+              </p>
+              {/* Séparateur doré animé */}
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="mx-auto h-1 w-32 bg-hotel-gold rounded-full origin-left"
+              />
+            </motion.div>
+            <div className="absolute top-0 left-0 w-full h-32 bg-hotel-gold/10 blur-2xl opacity-40 pointer-events-none" />
+          </section>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            {values.map((value) => (
-              <div key={value.title} className="bg-white p-6 rounded-xl border border-muted/60">
-                <div className="h-12 w-12 rounded-full bg-hotel-gold/10 flex items-center justify-center mb-4">
-                  <value.icon className="h-6 w-6 text-hotel-gold" />
-                </div>
-                <h3 className="font-bold text-xl mb-2">{value.title}</h3>
-                <p className="text-muted-foreground">{value.description}</p>
-              </div>
-            ))}
+          {/* 3. Vision */}
+          <section className="py-20 bg-hotel-navy text-white">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="font-playfair text-3xl text-hotel-gold mb-8">Notre Vision</h2>
+              <blockquote className="italic text-xl md:text-2xl font-serif text-hotel-gold mb-4 relative">
+                « L'hôtellerie de demain sera humaine, innovante et durable. »
+              </blockquote>
+              <span className="block text-white/80 font-light">— Safiya Diop, Fondatrice</span>
+            </div>
+          </section>
+          
+          {/* 4. Valeurs */}
+          <section className="py-20 bg-white text-hotel-navy">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="font-playfair text-3xl mb-10 text-center" style={{color:'#1A2341'}}>Nos Valeurs</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                {valeurs.map((val, i) => (
+                  <div
+                    key={val.label}
+                    className="bg-hotel-navy rounded-xl p-6 text-center shadow-lg border-b-4" 
+                    style={{borderBottomColor:'#dfe9ff'}}
+                  >
+                    <div className="mb-3" style={{color:'#dfe9ff', fontSize:'2.25rem'}}>{val.icon}</div>
+                    <div className="font-playfair text-xl mb-2" style={{color:'#dfe9ff'}}>{val.label}</div>
+                    <div className="text-white/90 text-sm">{val.desc}</div>
           </div>
-        </div>
-      </section>
+                ))}
+            </div>
+          </div>
+        </section>
 
-      <div className="bg-hotel-darkBlue py-16 text-white">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold tracking-tight mb-6">
-              Prêt à travailler avec nous ?
-            </h2>
-            <p className="text-white/80 mb-8">
-              Découvrez comment nous pouvons vous aider à transformer la présence en ligne de votre établissement
-            </p>
-            <Button size="lg" asChild className="bg-hotel-gold hover:bg-hotel-gold/90 text-hotel-darkBlue font-medium">
-              <Link to="/contact">
-                Contactez notre équipe
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+          {/* 5. Équipe */}
+          <section className="py-20 bg-hotel-navy text-white">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="font-playfair text-3xl text-hotel-gold mb-10 text-center">Notre Équipe</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                {equipe.map((m, i) => (
+                  <div
+                    key={m.nom}
+                    className="bg-white/10 rounded-2xl p-6 flex flex-col items-center shadow-lg border border-hotel-gold/40 relative group"
+                  >
+                    <div className="w-28 h-28 mb-4 overflow-hidden rounded-full border-4 border-hotel-gold shadow-lg">
+                      <img src={m.photo} alt={m.nom} className="w-full h-full object-cover" />
+                    </div>
+                    <div className="font-playfair text-xl text-hotel-gold mb-1">{m.nom}</div>
+                    <div className="text-white/90 text-sm mb-1">{m.poste}</div>
+                    <div className="text-white/60 text-xs">{m.expertise}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+          
+          {/* 6. Expertise */}
+          <section className="py-20 bg-white text-hotel-navy">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="font-playfair text-3xl text-hotel-gold mb-10 text-center">Notre Expertise</h2>
+              <div className="flex flex-wrap justify-center gap-8 mb-10">
+                {expertises.map((exp, i) => (
+                  <div key={exp.label} className="flex flex-col items-center">
+                    <div className="text-hotel-gold text-4xl mb-2">{exp.icon}</div>
+                    <div className="font-playfair text-lg">{exp.label}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-wrap justify-center gap-12 mb-10">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-hotel-gold">{clients}+</div>
+                  <div className="text-sm text-hotel-navy/80">Clients accompagnés</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-hotel-gold">{hotels}+</div>
+                  <div className="text-sm text-hotel-navy/80">Hôtels & établissements</div>
+                </div>
+              </div>
+              <div className="max-w-2xl mx-auto">
+                {temoignages.map((t, i) => (
+                  <blockquote key={i} className="bg-hotel-navy/90 text-white rounded-xl p-6 mb-6 shadow-lg border-l-4 border-hotel-gold relative">
+                    <FaQuoteLeft className="absolute -left-6 top-2 text-2xl text-hotel-gold/60" />
+                    <div className="italic text-lg mb-2">{t.citation}</div>
+                    <div className="text-hotel-gold font-playfair">{t.nom}</div>
+                    <div className="text-xs text-white/60">{t.poste}</div>
+                  </blockquote>
+              ))}
+            </div>
           </div>
-        </div>
-      </div>
-    </Layout>
+        </section>
+
+          {/* 7. Partenaires */}
+          <section className="py-20 bg-hotel-navy text-white">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="font-playfair text-3xl text-hotel-gold mb-10 text-center">Nos Partenaires</h2>
+              <div className="flex flex-wrap justify-center gap-10">
+                {partenaires.map((p, i) => (
+                  <div key={p.nom} className="flex flex-col items-center group">
+                    <div className="h-16 w-auto mb-2 grayscale hover:grayscale-0 transition-all duration-300">
+                      <img src={p.logo} alt={p.nom} className="h-full w-auto object-contain" />
+            </div>
+                    <div className="text-sm text-hotel-gold">{p.nom}</div>
+                    <div className="text-xs text-white/60">{p.type}</div>
+                </div>
+              ))}
+              </div>
+            </div>
+          </section>
+
+          {/* 8. Appel à l'action */}
+          <section className="py-16 bg-gradient-to-r from-hotel-navy to-hotel-gold/30 text-center">
+            <div className="max-w-4xl mx-auto px-4">
+              <h2 className="font-playfair text-3xl text-white mb-6">Prêt à collaborer avec nous ?</h2>
+              <p className="text-lg text-white/80 mb-8">Contactez-nous pour discuter de votre projet et découvrir comment nous pouvons vous accompagner vers l'excellence hôtelière.</p>
+              <a href="/contact"
+                className="inline-block font-sans text-base rounded-full transition-all duration-300"
+                style={{
+                  background: '#f7c873',
+                  color: '#fff',
+                  padding: '0.75rem 2rem',
+                  borderRadius: '9999px',
+                  border: 'none',
+                  boxShadow: 'none',
+                  fontFamily: 'Noto Sans, ui-sans-serif, system-ui, sans-serif',
+                }}
+              >
+                Contactez-nous
+              </a>
+            </div>
+          </section>
+        </main>
+      </Layout>
+    </>
   );
 };
 
