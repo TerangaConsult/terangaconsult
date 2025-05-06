@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 
 const timeline = [
-  { year: "2018", title: "Création", desc: "Fondation du cabinet par Safiya Diop, experte en hôtellerie.", icon: <FaUserTie className="text-hotel-gold text-2xl" /> },
+  { year: "2018", title: "Création", desc: "Fondation du cabinet par Nour-Amine Mankouri, experte en hôtellerie.", icon: <FaUserTie className="text-hotel-gold text-2xl" /> },
   { year: "2019", title: "Premiers succès", desc: "Accompagnement de nos premiers établissements partenaires.", icon: <FaHotel className="text-hotel-gold text-2xl" /> },
   { year: "2021", title: "Croissance", desc: "Équipe élargie et nouveaux services digitaux.", icon: <FaUsers className="text-hotel-gold text-2xl" /> },
   { year: "2024", title: "Référence", desc: "Cabinet reconnu pour l'excellence et l'innovation au Sénégal.", icon: <FaAward className="text-hotel-gold text-2xl" /> },
@@ -19,9 +19,9 @@ const valeurs = [
 ];
 
 const equipe = [
-  { nom: "Safiya Diop", poste: "Fondatrice & CEO", expertise: "Stratégie hôtelière, digital, formation", photo: "/placeholder.svg" },
-  { nom: "Mamadou Ndiaye", poste: "Consultant Senior", expertise: "Gestion opérationnelle, revenue management", photo: "/placeholder.svg" },
-  { nom: "Awa Ba", poste: "Responsable Digital", expertise: "E-réputation, marketing digital", photo: "/placeholder.svg" },
+  { nom: "Nour-Amine Mankouri", poste: "Fondatrice & CEO", expertise: "Stratégie hôtelière, digital, formation", photo: "/assets/equipe-nour.jpg" },
+  { nom: "Mamadou Ndiaye", poste: "Consultant Senior", expertise: "Gestion opérationnelle, revenue management", photo: "/assets/equipe-mamadou.jpg" },
+  { nom: "Awa Ba", poste: "Responsable Digital", expertise: "E-réputation, marketing digital", photo: "/assets/equipe-awa.jpg" },
 ];
 
 const expertises = [
@@ -87,10 +87,10 @@ const About = () => {
               className="relative z-10 text-center py-20 max-w-3xl mx-auto"
             >
               <h1 className="font-playfair text-4xl md:text-5xl text-hotel-gold mb-4 tracking-tight drop-shadow-lg animate-fade-in">À propos</h1>
-              <p className="text-lg md:text-xl font-light text-white/90 mb-2">
+              <p className="text-lg md:text-xl font-light text-white/90 mb-2 sm:text-base">
                 TerangaConsult, c'est l'expertise, la passion et l'innovation au service de l'hôtellerie sénégalaise. Notre mission : accompagner les établissements vers l'excellence, la rentabilité et la reconnaissance internationale.
               </p>
-              <p className="text-base text-white/70 max-w-2xl mx-auto mb-6">
+              <p className="text-base text-white/70 max-w-2xl mx-auto mb-6 sm:text-sm">
                 Une équipe dévouée, des méthodes éprouvées et une approche personnalisée pour répondre aux défis uniques de chaque établissement.
               </p>
               {/* Séparateur doré animé */}
@@ -111,7 +111,7 @@ const About = () => {
               <blockquote className="italic text-xl md:text-2xl font-serif text-hotel-gold mb-4 relative">
                 « L'hôtellerie de demain sera humaine, innovante et durable. »
               </blockquote>
-              <span className="block text-white/80 font-light">— Safiya Diop, Fondatrice</span>
+              <span className="block text-white/80 font-light">— Nour-Amine Mankouri, Fondateur</span>
             </div>
           </section>
           
@@ -123,17 +123,17 @@ const About = () => {
                 {valeurs.map((val, i) => (
                   <div
                     key={val.label}
-                    className="bg-hotel-navy rounded-xl p-6 text-center shadow-lg border-b-4" 
+                    className="bg-hotel-navy rounded-xl p-6 text-center shadow-lg border-b-4 sm:p-4 sm:max-w-[250px] sm:mx-auto"
                     style={{borderBottomColor:'#dfe9ff'}}
                   >
                     <div className="mb-3" style={{color:'#dfe9ff', fontSize:'2.25rem'}}>{val.icon}</div>
                     <div className="font-playfair text-xl mb-2" style={{color:'#dfe9ff'}}>{val.label}</div>
                     <div className="text-white/90 text-sm">{val.desc}</div>
-          </div>
+                  </div>
                 ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
           {/* 5. Équipe */}
           <section className="py-20 bg-hotel-navy text-white">
@@ -149,7 +149,7 @@ const About = () => {
                       <img src={m.photo} alt={m.nom} className="w-full h-full object-cover" />
                     </div>
                     <div className="font-playfair text-xl text-hotel-gold mb-1">{m.nom}</div>
-                    <div className="text-white/90 text-sm mb-1">{m.poste}</div>
+                    <div className="text-white/90 text-sm mb-1">{m.poste.replace('Fondatrice', 'Fondateur')}</div>
                     <div className="text-white/60 text-xs">{m.expertise}</div>
                   </div>
                 ))}
@@ -168,16 +168,6 @@ const About = () => {
                     <div className="font-playfair text-lg">{exp.label}</div>
                   </div>
                 ))}
-              </div>
-              <div className="flex flex-wrap justify-center gap-12 mb-10">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-hotel-gold">{clients}+</div>
-                  <div className="text-sm text-hotel-navy/80">Clients accompagnés</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-hotel-gold">{hotels}+</div>
-                  <div className="text-sm text-hotel-navy/80">Hôtels & établissements</div>
-                </div>
               </div>
               <div className="max-w-2xl mx-auto">
                 {temoignages.map((t, i) => (

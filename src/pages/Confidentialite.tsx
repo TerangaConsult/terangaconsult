@@ -30,11 +30,11 @@ const Confidentialite = () => (
           </section>
           <section className="mb-8">
             <h2 className="font-semibold text-lg mb-2">Droits des utilisateurs</h2>
-            <p>Conformément à la loi, vous disposez d'un droit d'accès, de rectification, d'opposition et de suppression de vos données. Pour exercer ces droits, contactez-nous à l'adresse <a href="mailto:contact@terangaconsult.com" className="text-hotel-gold underline">contact@terangaconsult.com</a>.</p>
+            <p>Conformément à la loi, vous disposez d'un droit d'accès, de rectification, d'opposition et de suppression de vos données. Pour exercer ces droits, contactez-nous à l'adresse <a href="mailto:terangaconsult.com@gmail.com" className="text-hotel-gold underline">terangaconsult.com@gmail.com</a>.</p>
           </section>
           <section>
             <h2 className="font-semibold text-lg mb-2">Contact</h2>
-            <p>Pour toute question relative à la protection de vos données, vous pouvez nous écrire à <a href="mailto:contact@terangaconsult.com" className="text-hotel-gold underline">contact@terangaconsult.com</a>.</p>
+            <p>Pour toute question relative à la protection de vos données, vous pouvez nous écrire à <a href="mailto:terangaconsult.com@gmail.com" className="text-hotel-gold underline">terangaconsult.com@gmail.com</a>.</p>
           </section>
         </div>
       </main>

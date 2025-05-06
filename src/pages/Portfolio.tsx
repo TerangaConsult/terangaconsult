@@ -349,17 +349,6 @@ const Portfolio = () => {
             </div>
           </div>
         </section>
-        {/* 7. Statistiques de réussite */}
-        <section className="py-20 bg-white text-hotel-navy">
-          <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-12">
-            {stats.map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-4xl font-bold text-hotel-gold">{displayedStats[i]}{i === 1 ? "%" : "+"}</div>
-                <div className="text-sm text-hotel-navy/80">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </section>
         {/* 8. CTA sophistiqué */}
         <section className="py-16 bg-gradient-to-r from-hotel-navy to-[#F3F4F6]/30 text-center">
           <motion.div

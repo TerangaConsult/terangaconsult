@@ -5,8 +5,8 @@ import Layout from "@/components/layout/Layout";
 import { Helmet } from "react-helmet-async";
 
 // Données des services
-  const services = [
-    {
+const services = [
+  {
     id: 1,
     titre: "Stratégie digitale & commerciale",
     icon: <FaChartLine className="text-hotel-gold text-4xl" />,
@@ -78,6 +78,12 @@ const processus = [
     titre: "Suivi & Optimisation",
     description: "Mesure des résultats et ajustements pour maximiser votre performance."
   }
+];
+
+const serviceImages = [
+  '/assets/strategie_digitale_commerciale.jpg', // Stratégie digitale & commerciale
+  '/assets/optimisation_ereputation.jpg', // Optimisation de la e-réputation
+  '/assets/formation_accompagnement.jpg' // Formation & accompagnement
 ];
 
 const Services = () => {
@@ -164,10 +170,13 @@ const Services = () => {
                   
                   <div className="flex flex-col md:flex-row gap-8">
                     {/* Image du service */}
-                    <div className="md:w-1/3">
-                      <div className="aspect-square bg-hotel-navy/5 rounded-xl flex items-center justify-center">
-                        {services[selected].icon}
-                      </div>
+                    <div className="md:w-1/3 flex justify-center items-center">
+                      <img
+                        src={serviceImages[selected]}
+                        alt={services[selected].titre}
+                        className="w-full max-w-md h-64 object-cover rounded-xl shadow-md border border-hotel-gold/30 bg-white"
+                        style={{background:'#fff'}}
+                      />
                     </div>
                     
                     {/* Description du service */}
@@ -179,8 +188,8 @@ const Services = () => {
                           <li key={i} className="flex items-center gap-2">
                             <span className="inline-block w-2 h-2 rounded-full bg-hotel-gold" />
                             <span className="text-hotel-navy">{pt}</span>
-                        </li>
-                      ))}
+                          </li>
+                        ))}
                       </ul>
                       <div className="bg-hotel-navy/5 p-4 rounded-lg">
                         <p className="italic text-hotel-navy/80">"{services[selected].temoignage.citation}"</p>
@@ -228,7 +237,7 @@ const Services = () => {
                   fetch('/.netlify/functions/sendMail', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ nom, email, message }),
+                    body: JSON.stringify({ nom, email, message, subject: "Demande de contact via la page Services TerangaConsult" }),
                   })
                     .then(res => res.json())
                     .then(data => {

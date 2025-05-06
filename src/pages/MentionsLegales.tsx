@@ -17,7 +17,7 @@ const MentionsLegales = () => (
             <p>Ce site est édité par <strong>TerangaConsult</strong>, société de conseil en hôtellerie et marketing digital.<br />
             Adresse : 123 Rue du Commerce, Dakar, Sénégal<br />
             Téléphone : +221 77 123 45 67<br />
-            Email : contact@terangaconsult.com</p>
+            Email : terangaconsult.com@gmail.com</p>
           </section>
           <section className="mb-8">
             <h2 className="font-semibold text-lg mb-2">Directrice de la publication</h2>
@@ -35,7 +35,7 @@ const MentionsLegales = () => (
           </section>
           <section className="mb-8">
             <h2 className="font-semibold text-lg mb-2">Données personnelles</h2>
-            <p>Les informations recueillies via les formulaires sont destinées exclusivement à TerangaConsult pour la gestion de vos demandes. Conformément à la loi, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ce droit, contactez-nous à l'adresse <a href="mailto:contact@terangaconsult.com" className="text-hotel-gold underline">contact@terangaconsult.com</a>.</p>
+            <p>Les informations recueillies via les formulaires sont destinées exclusivement à TerangaConsult pour la gestion de vos demandes. Conformément à la loi, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ce droit, contactez-nous à l'adresse <a href="mailto:terangaconsult.com@gmail.com" className="text-hotel-gold underline">terangaconsult.com@gmail.com</a>.</p>
           </section>
           <section>
             <h2 className="font-semibold text-lg mb-2">Responsabilité</h2>

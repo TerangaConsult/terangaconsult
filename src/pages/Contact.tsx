@@ -18,17 +18,17 @@ const faqs = [
   {
     question: "Quels types d'établissements accompagnez-vous ?",
     answer: "Nous accompagnons hôtels, lodges, maisons d'hôtes et tout établissement du secteur de l'hospitalité, quelle que soit leur taille.",
-    icon: <FaHotel style={{color:'#F3F4F6'}} />
+    icon: <FaHotel className="text-hotel-navy" />
   },
   {
     question: "Quels services proposez-vous ?",
     answer: "Stratégie digitale, e-réputation, formation, accompagnement sur-mesure, audits, coaching et plus encore.",
-    icon: <FaChartLine style={{color:'#F3F4F6'}} />
+    icon: <FaChartLine className="text-hotel-navy" />
   },
   {
     question: "Comment se déroule un accompagnement ?",
     answer: "Après un diagnostic, nous définissons ensemble un plan d'action, puis nous vous accompagnons à chaque étape, avec suivi et ajustements réguliers.",
-    icon: <FaUserGraduate style={{color:'#F3F4F6'}} />
+    icon: <FaUserGraduate className="text-hotel-navy" />
   }
 ];
 const temoignages = [
@@ -109,7 +109,7 @@ const Contact = () => {
       fetch('/.netlify/functions/sendMail', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nom: form.nom, email: form.email, message: form.message }),
+        body: JSON.stringify({ nom: form.nom, email: form.email, message: form.message, subject: 'Demande de contact via le site TerangaConsult' }),
       })
         .then(res => res.json())
         .then(data => {
@@ -225,7 +225,7 @@ const Contact = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className={`w-full rounded-lg px-4 py-2 bg-hotel-bg-light border-2 transition-all duration-200 focus:border-hotel-gold focus:bg-white ${errors.nom && touched['nom'] ? 'border-red-400' : 'border-transparent'}`}
-                  placeholder="Votre nom complet"
+                  placeholder="Nom complet"
                 />
                 {errors.nom && touched['nom'] && <span className="text-red-500 text-xs">{errors.nom}</span>}
               </motion.div>
@@ -246,7 +246,7 @@ const Contact = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className={`w-full rounded-lg px-4 py-2 bg-hotel-bg-light border-2 transition-all duration-200 focus:border-hotel-gold focus:bg-white ${errors.email && touched['email'] ? 'border-red-400' : 'border-transparent'}`}
-                  placeholder="Votre email"
+                  placeholder="Email"
                   type="email"
                 />
                 {errors.email && touched['email'] && <span className="text-red-500 text-xs">{errors.email}</span>}
@@ -268,7 +268,7 @@ const Contact = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className={`w-full rounded-lg px-4 py-2 bg-hotel-bg-light border-2 transition-all duration-200 focus:border-hotel-gold focus:bg-white ${errors.tel && touched['tel'] ? 'border-red-400' : 'border-transparent'}`}
-                  placeholder="Votre téléphone"
+                  placeholder="Numéro de Téléphone"
                   type="tel"
                 />
                 {errors.tel && touched['tel'] && <span className="text-red-500 text-xs">{errors.tel}</span>}
@@ -387,7 +387,7 @@ const Contact = () => {
                 type="submit"
                 whileHover={{ scale: 1.05, boxShadow: "0 4px 24px #c4a77544" }}
                 whileTap={{ scale: 0.97 }}
-                className="mt-2 px-8 py-3 rounded-full bg-hotel-gold text-hotel-navy font-sans text-lg font-bold shadow-lg border-2 border-hotel-gold transition-all duration-300 focus-visible:outline-none hover:bg-hotel-navy hover:text-hotel-gold hover:border-hotel-navy"
+                className="mt-2 px-5 py-2 rounded-full bg-hotel-gold text-hotel-navy font-sans text-base font-bold shadow-lg border-2 border-hotel-gold transition-all duration-300 focus-visible:outline-none hover:bg-hotel-navy hover:text-hotel-gold hover:border-hotel-navy"
                 style={{ fontFamily: 'Noto Sans, ui-sans-serif, system-ui, sans-serif' }}
               >
                 Envoyer

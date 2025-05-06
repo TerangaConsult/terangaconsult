@@ -1,78 +1,23 @@
-# Welcome to your Lovable project
+# TerangaConsult - Consulting hôtelier et marketing digital au Sénégal
 
-## Project info
+## Présentation du projet
 
-**URL**: https://lovable.dev/projects/a67f8cab-9c16-47b4-8fa4-7ccaa30bfb95
+**URL**: (à compléter après déploiement)
 
-## How can I edit this code?
+Ce projet est un site vitrine pour TerangaConsult, cabinet de conseil spécialisé dans l'hôtellerie et le marketing digital au Sénégal. Il présente les services, réalisations, valeurs et permet de contacter l'équipe pour un accompagnement sur-mesure.
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/a67f8cab-9c16-47b4-8fa4-7ccaa30bfb95) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
+## Technologies utilisées
 - Vite
 - TypeScript
 - React
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## Déploiement
 
-Simply open [Lovable](https://lovable.dev/projects/a67f8cab-9c16-47b4-8fa4-7ccaa30bfb95) and click on Share -> Publish.
+Le site peut être déployé sur Netlify, Vercel ou tout autre hébergeur compatible avec les applications React/Vite.
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
-
-## Formulaire de contact avec Nodemailer (Netlify Functions)
+## Formulaire de contact avec Netlify Functions
 
 1. Créez le dossier `/netlify/functions/` à la racine du projet.
 2. Ajoutez un fichier `sendMail.js` (voir exemple ci-dessous).
@@ -118,4 +63,4 @@ exports.handler = async function(event, context) {
 
 **N'oubliez pas de remplacer les emails et mots de passe par vos informations.**
 
-Pour toute question, contactez le développeur du projet.
+Pour toute question, contactez l'équipe TerangaConsult.
