@@ -16,7 +16,6 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <Layout>
       <div className="container py-16 md:py-24">
         <div className="max-w-md mx-auto text-center">
           <h1 className="text-6xl font-bold mb-4">404</h1>
@@ -28,7 +27,6 @@ const NotFound = () => {
           </Button>
         </div>
       </div>
-    </Layout>
   );
 };
 

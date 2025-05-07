@@ -10,46 +10,53 @@ html, body {
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
-    --foreground: 215 25% 27%;
+    /* Palette alignée avec tailwind.config.js */
+    /* Primary (Bleu Océan - #145374) */
+    --primary: 207 69% 27%; 
+    --primary-foreground: 210 20% 98%; /* Blanc cassé pour contraste */
 
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 27%;
+    /* Secondary (Or - #f0c04c) */
+    --secondary: 45 87% 62%; 
+    --secondary-foreground: 207 69% 15%; /* Bleu très foncé pour contraste sur or */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 27%;
+    /* Accent (Terracotta - #e8603c) */
+    --accent: 14 80% 57%; 
+    --accent-foreground: 210 20% 98%; /* Blanc cassé pour contraste */
 
-    --primary: 215 60% 20%;
-    --primary-foreground: 210 20% 98%;
-
-    --secondary: 45 80% 52%;
-    --secondary-foreground: 215 25% 27%;
-
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 45 80% 52%;
-    --accent-foreground: 215 25% 27%;
-
-    --destructive: 0 84.2% 60.2%;
+    /* Destructive (Terracotta - #e8603c, peut être la même que accent ou une autre) */
+    --destructive: 14 80% 57%; 
     --destructive-foreground: 210 20% 98%;
+    
+    /* Backgrounds */
+    --background: 210 20% 98%; /* #fafbfc (background.default) */
+    --foreground: 211 39% 23%; /* #2d4154 (text.primary) */
+    
+    /* Card */
+    --card: 0 0% 100%; /* Blanc */
+    --card-foreground: 211 39% 23%; /* text.primary */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 215 60% 20%;
+    /* Popover */
+    --popover: 0 0% 100%; /* Blanc */
+    --popover-foreground: 211 39% 23%; /* text.primary */
+
+    /* Muted */
+    --muted: 210 20% 96%; /* #f0f4f7 (background.alt) */
+    --muted-foreground: 215 20% 65%; /* Gris moyen pour texte sur fond muted */
+
+    /* Border, Input, Ring */
+    --border: 215 20% 90%; /* #e2e8f0 (border) */
+    --input: 215 20% 90%; /* #e2e8f0 (border) */
+    --ring: 207 69% 27%; /* #145374 (primary) */
 
     --radius: 0.5rem;
   }
 }
 
 @layer base {
-  * {
-    @apply border-gray-200;
-  }
+  /* Suppression de la règle globale de bordure: * { @apply border-gray-200; } */
 
   body {
-    @apply bg-white;
-    color: #23272F;
+    @apply bg-background-default text-text-primary;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
-  // Navigation items
+  // Navigation items - "Accueil" a été supprimé
   const navItems = [
-    { label: "Accueil", href: "/" },
     { label: "À propos", href: "/#about" },
     { label: "Services", href: "/#services" },
     { label: "Processus", href: "/#process" },
@@ -16,9 +16,9 @@ const Header = () => {
 
   // Variants pour le drawer
   const drawerVariants = {
-    closed: { x: '100%', opacity: 0 },
-    open: { x: 0, opacity: 1, transition: { type: 'spring', stiffness: 400, damping: 35 } },
-    exit: { x: '100%', opacity: 0, transition: { duration: 0.25 } }
+    closed: { y: '-100%', opacity: 0 },
+    open: { y: 0, opacity: 1, transition: { ease: "easeInOut", duration: 0.3 } },
+    exit: { y: '-100%', opacity: 0, transition: { ease: "easeInOut", duration: 0.2 } }
   };
 
   // Overlay
@@ -28,11 +28,21 @@ const Header = () => {
     exit: { opacity: 0, transition: { duration: 0.2 } }
   };
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    if (menuOpen) {
+      setMenuOpen(false);
+    }
+  };
+
   return (
-    <header className="fixed w-full bg-hotel-navy/95 z-50">
-      <div className="container mx-auto flex justify-between items-center py-4 px-4">
+    <header className="fixed w-full bg-primary/95 z-50">
+      <div className="container mx-auto flex justify-between items-center px-4">
         <div className="logo">
-          <Link to="/">
+          <Link to="/" onClick={handleLogoClick}>
             <img src="/assets/logo.svg" alt="TerangaConsult" className="h-12" />
           </Link>
         </div>
@@ -43,12 +53,12 @@ const Header = () => {
             <Link 
               key={index} 
               to={item.href}
-              className="text-white hover:text-hotel-gold transition-colors"
+              className="text-white hover:text-secondary transition-colors"
             >
               {item.label}
             </Link>
           ))}
-          <Link to="/#contact" className="bg-hotel-gold text-hotel-navy px-6 py-2 rounded-lg ml-4">
+          <Link to="/#contact" className="bg-secondary text-primary px-6 py-2 rounded-lg ml-4">
             Contactez-nous
           </Link>
         </nav>
@@ -88,10 +98,12 @@ const Header = () => {
               animate="open"
               exit="exit"
               variants={drawerVariants}
-              className="fixed top-0 right-0 h-full w-4/5 max-w-xs bg-hotel-navy/95 z-50 shadow-lg flex flex-col"
+              className="fixed top-0 left-0 w-full bg-primary/95 z-50 shadow-lg flex flex-col"
             >
               <div className="flex justify-between items-center p-4">
-                <img src="/assets/logo.svg" alt="TerangaConsult" className="h-10" />
+                <Link to="/" onClick={handleLogoClick} className="focus:outline-none">
+                  <img src="/assets/logo.svg" alt="TerangaConsult" className="h-10" />
+                </Link>
                 <button
                   onClick={() => setMenuOpen(false)}
                   className="text-white text-2xl focus:outline-none"
@@ -102,12 +114,12 @@ const Header = () => {
                   </svg>
                 </button>
               </div>
-              <nav className="flex flex-col space-y-4 px-6 mt-4">
+              <nav className="flex flex-col space-y-4 px-6 mt-4 pb-8">
                 {navItems.map((item, index) => (
                   <Link
                     key={index}
                     to={item.href}
-                    className="text-white text-lg hover:text-hotel-gold transition-colors"
+                    className="text-white text-lg hover:text-secondary transition-colors"
                     onClick={() => setMenuOpen(false)}
                   >
                     {item.label}
@@ -115,7 +127,7 @@ const Header = () => {
                 ))}
                 <Link
                   to="/#contact"
-                  className="bg-hotel-gold text-hotel-navy px-6 py-2 rounded-lg inline-block text-center mt-4"
+                  className="bg-secondary text-primary px-6 py-2 rounded-lg inline-block text-center mt-4"
                   onClick={() => setMenuOpen(false)}
                 >
                   Contactez-nous

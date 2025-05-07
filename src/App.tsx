@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
+import Layout from "./components/layout/Layout";
 import LandingPage from "./pages/LandingPage";
 import MentionsLegales from "./pages/MentionsLegales";
 import Confidentialite from "./pages/Confidentialite";
@@ -22,11 +23,11 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/mentions-legales" element={<MentionsLegales />} />
-            <Route path="/confidentialite" element={<Confidentialite />} />
-            <Route path="/cgv" element={<Cgv />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<Layout><LandingPage /></Layout>} />
+            <Route path="/mentions-legales" element={<Layout><MentionsLegales /></Layout>} />
+            <Route path="/confidentialite" element={<Layout><Confidentialite /></Layout>} />
+            <Route path="/cgv" element={<Layout><Cgv /></Layout>} />
+            <Route path="*" element={<Layout><NotFound /></Layout>} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>

@@ -8,7 +8,6 @@ const MentionsLegales = () => (
       <title>Mentions légales - TerangaConsult</title>
       <meta name="description" content="Mentions légales du site TerangaConsult : éditeur, hébergeur, propriété intellectuelle, données personnelles et responsabilité." />
     </Helmet>
-    <Layout>
       <main className="bg-white text-hotel-navy min-h-screen py-16">
         <div className="container mx-auto px-4 max-w-3xl">
           <h1 className="font-playfair text-3xl md:text-4xl text-hotel-gold mb-8">Mentions légales</h1>
@@ -43,7 +42,6 @@ const MentionsLegales = () => (
           </section>
         </div>
       </main>
-    </Layout>
   </>
 );
 

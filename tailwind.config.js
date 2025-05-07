@@ -13,55 +13,41 @@ module.exports = {
         'serif': ['Playfair Display', 'serif'],
       },
       colors: {
-        // Structure traditionnelle pour compatibilité
-        'hotel-navy': '#145374',    // Bleu océan plus vif
-        'hotel-blue': '#e8f1f5',    // Bleu très pâle, comme le ciel sénégalais
-        'hotel-gold': '#f0c04c',    // Or ensoleillé, comme les plages
-        'hotel-bg': '#fafbfc',      // Blanc cassé très subtil
-        'hotel-bg-light': '#f0f4f7', // Bleu ultra clair
-        'hotel-text': '#2d4154',    // Bleu-gris foncé pour le texte
-        'hotel-accent': '#e8603c',  // Terracotta/orange, comme la terre sénégalaise
         'white': '#ffffff',
-        
-        // Palette Sénégal inspirée - couleurs vibrantes mais professionnelles
-        'senegal': {
-          // Couleurs principales
-          'blue': '#145374',        // Bleu océan, comme les côtes sénégalaises
-          'sand': '#f0c04c',        // Doré comme les plages de sable
-          'terracotta': '#e8603c',  // Terre rouge/orange typique du Sénégal
-          'green': '#00845d',       // Vert comme la végétation
-          
-          // Nuances et compléments
-          'blue-light': '#e8f1f5',  // Bleu très clair
-          'blue-dark': '#0d3b54',   // Bleu plus profond
-          'sand-light': '#f7e3a0',  // Sable pâle
-          'green-light': '#4cb69f', // Vert plus pâle
-          
-          // Neutres
-          'dark': '#2d4154',        // Pour le texte principal
-          'gray': '#7e8a97',        // Gris moyen
-          'light': '#f0f4f7',       // Gris très clair
-          'white': '#ffffff',       // Blanc pur
+        'black': '#000000',
+
+        'primary': {
+          DEFAULT: '#145374',
+          light: '#e8f1f5',
+          dark: '#0d3b54',
+        },
+        'secondary': {
+          DEFAULT: '#f0c04c',
+          light: '#f7e3a0',
+        },
+        'accent': {
+          DEFAULT: '#e8603c',
         },
         
-        // Couleurs fonctionnelles
-        'success': '#00845d',       // Vert sénégalais
-        'warning': '#f0c04c',       // Or sénégalais
-        'error': '#e8603c',         // Terracotta
-        'info': '#145374',          // Bleu océan
-        
-        // Couleurs système / UI
-        'background': {
-          'light': '#ffffff',
-          'DEFAULT': '#fafbfc',
-          'dark': '#f0f4f7'
-        },
         'text': {
-          'primary': '#2d4154',
-          'secondary': '#7e8a97',
-          'light': '#a9b6c3'
+          primary: '#2d4154',
+          secondary: '#7e8a97',
+          inverted: '#ffffff',
+          light: '#a9b6c3'
         },
+        
+        'background': {
+          default: '#fafbfc',
+          alt: '#f0f4f7',
+          white: '#ffffff',
+        },
+        
         'border': '#e2e8f0',
+        
+        'success': '#00845d',
+        'warning': '#f0c04c',
+        'destructive': '#e8603c',  // Mappé sur accent.DEFAULT
+        'info': '#145374',          // Mappé sur primary.DEFAULT
       },
       boxShadow: {
         'subtle': '0 1px 3px rgba(0, 0, 0, 0.05)',

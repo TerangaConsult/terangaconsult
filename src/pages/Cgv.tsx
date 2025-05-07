@@ -8,7 +8,6 @@ const Cgv = () => (
       <title>Conditions générales de vente - TerangaConsult</title>
       <meta name="description" content="Conditions générales de vente de TerangaConsult : prestations, tarifs, responsabilité, propriété intellectuelle et litiges." />
     </Helmet>
-    <Layout>
       <main className="bg-white text-hotel-navy min-h-screen py-16">
         <div className="container mx-auto px-4 max-w-3xl">
           <h1 className="font-playfair text-3xl md:text-4xl text-hotel-gold mb-8">Conditions générales</h1>
@@ -42,7 +41,6 @@ const Cgv = () => (
           </section>
         </div>
       </main>
-    </Layout>
   </>
 );
 

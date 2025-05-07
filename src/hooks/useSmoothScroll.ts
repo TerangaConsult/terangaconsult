@@ -11,10 +11,10 @@ export const useSmoothScroll = () => {
       
       const href = anchor.getAttribute('href');
       
-      if (href && href.startsWith('#')) {
+      if (href && (href.startsWith('#') || href.startsWith('/#'))) {
         e.preventDefault();
         
-        const targetId = href.substring(1);
+        const targetId = href.substring(href.lastIndexOf('#') + 1);
         const targetElement = document.getElementById(targetId);
         
         if (targetElement) {

@@ -1,9 +1,14 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+/*
+  Fichier initialement généré par Vite.
+  Les styles qui étaient présents ici ont été jugés obsolètes ou redondants
+  avec Tailwind CSS et ont été supprimés.
+
+  Vous pouvez ajouter ici des styles globaux spécifiques à l'application si nécessaire,
+  mais privilégiez Tailwind CSS (via `tailwind.config.js` et les classes utilitaires)
+  ou `src/index.css` pour les styles de base et les polices.
+*/
+
+/* Styles globaux personnalisés. Peut être vidé ou supprimé si tous les styles sont gérés par Tailwind. */
 
 .logo {
   height: 6em;

@@ -1,9 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import useSmoothScroll from "@/hooks/useSmoothScroll";
-import BackToTop from "@/components/ui/BackToTop";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
@@ -27,12 +24,6 @@ const LandingPage = () => {
         <link rel="canonical" href="https://www.terangaconsult.com/" />
       </Helmet>
       
-      {/* Bouton retour en haut */}
-      <BackToTop />
-      
-      {/* Header */}
-      <Header />
-      
       {/* Hero Section */}
       <HeroSection />
       
@@ -50,9 +41,6 @@ const LandingPage = () => {
       
       {/* Formulaire de Contact */}
       <ContactSection />
-      
-      {/* Footer */}
-      <Footer />
     </>
   );
 };
