@@ -1,66 +1,80 @@
-# TerangaConsult - Consulting hôtelier et marketing digital au Sénégal
+# TerangaConsult - Site Web
 
-## Présentation du projet
+## Présentation
 
-**URL**: (à compléter après déploiement)
+Ce site web est une landing page optimisée pour TerangaConsult, cabinet de consulting hôtelier et marketing digital au Sénégal. La page a été conçue pour offrir une expérience utilisateur fluide et concentrer l'attention sur les services essentiels proposés par TerangaConsult.
 
-Ce projet est un site vitrine pour TerangaConsult, cabinet de conseil spécialisé dans l'hôtellerie et le marketing digital au Sénégal. Il présente les services, réalisations, valeurs et permet de contacter l'équipe pour un accompagnement sur-mesure.
+## Structure du Site
+
+Le site a été simplifié en une landing page unique avec plusieurs sections :
+
+1. **Hero** - Présentation principale et appels à l'action
+2. **À Propos** - Présentation concise de TerangaConsult et chiffres clés
+3. **Services** - Les 3 services principaux avec description et points clés
+4. **Processus** - Les 4 étapes de l'accompagnement client
+5. **Témoignages** - Ce que disent les clients avec résultats chiffrés
+6. **Contact** - Formulaire simplifié et informations de contact
+
+Les pages légales (Mentions Légales, Politique de Confidentialité, CGV) sont accessibles depuis le footer.
+
+## Fonctionnalités
+
+- **Navigation fluide** - Défilement smooth scroll entre les sections
+- **Formulaire de contact** - Intégré directement dans la landing page
+- **Design responsive** - Optimisé pour tous les appareils
+- **Bouton "Retour en haut"** - Pour faciliter la navigation sur mobile
+- **Redirections** - Les anciennes URLs sont redirigées vers les sections correspondantes
 
 ## Technologies utilisées
-- Vite
-- TypeScript
+
 - React
-- shadcn-ui
+- TypeScript
 - Tailwind CSS
+- React Router
+- React Helmet (pour le SEO)
+- React Icons
+
+## Installation et développement
+
+1. Cloner le dépôt
+   ```
+   git clone [URL du dépôt]
+   ```
+
+2. Installer les dépendances
+   ```
+   npm install
+   ```
+
+3. Lancer le serveur de développement
+   ```
+   npm run dev
+   ```
+
+4. Construire pour la production
+   ```
+   npm run build
+   ```
 
 ## Déploiement
 
-Le site peut être déployé sur Netlify, Vercel ou tout autre hébergeur compatible avec les applications React/Vite.
+Le site est configuré pour être déployé sur Netlify. Le fichier `netlify.toml` définit les redirections pour les anciennes URLs.
 
-## Formulaire de contact avec Netlify Functions
+## Structure des fichiers principaux
 
-1. Créez le dossier `/netlify/functions/` à la racine du projet.
-2. Ajoutez un fichier `sendMail.js` (voir exemple ci-dessous).
-3. Installez `nodemailer` dans le projet :
-   ```bash
-   npm install nodemailer
-   ```
-4. Configurez un mot de passe d'application Gmail (voir documentation Google).
-5. Dans votre formulaire React, envoyez les données en POST vers `/.netlify/functions/sendMail`.
-6. Déployez sur Netlify.
+- `src/pages/LandingPage.tsx` - Composant principal de la landing page
+- `src/hooks/useSmoothScroll.ts` - Hook pour le défilement fluide
+- `src/components/ui/BackToTop.tsx` - Composant de bouton "Retour en haut"
+- `netlify.toml` - Configuration Netlify et redirections
 
-**Exemple de fonction serverless :**
-```js
-const nodemailer = require('nodemailer');
+## Maintenance
 
-exports.handler = async function(event, context) {
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Méthode non autorisée' };
-  }
-  const { nom, email, message } = JSON.parse(event.body);
+Pour mettre à jour le contenu du site, modifiez directement le fichier `src/pages/LandingPage.tsx`. Chaque section est clairement délimitée par des commentaires pour faciliter la maintenance.
 
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'votre-adresse@gmail.com',
-      pass: 'votre-mot-de-passe-application',
-    },
-  });
+## Contact
 
-  try {
-    await transporter.sendMail({
-      from: email,
-      to: 'votre-adresse@gmail.com',
-      subject: `Nouveau message de ${nom}`,
-      text: message,
-    });
-    return { statusCode: 200, body: JSON.stringify({ success: true }) };
-  } catch (err) {
-    return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
-  }
-};
-```
+Pour toute question concernant le site, contactez l'équipe de développement à [email@example.com].
 
-**N'oubliez pas de remplacer les emails et mots de passe par vos informations.**
+---
 
-Pour toute question, contactez l'équipe TerangaConsult.
+© 2024 TerangaConsult

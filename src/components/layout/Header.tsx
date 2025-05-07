@@ -1,107 +1,81 @@
 import React, { useState } from 'react';
-import { Button } from "@/components/ui/button";
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import { COMPANY_INFO } from '@/lib/constants';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const isActive = (path: string) => {
-    return location.pathname === path;
-  };
-
-  const navigation = [
-    { name: 'Accueil', path: '/' },
-    { name: 'Services', path: '/services' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'À propos', path: '/a-propos' },
+  // Navigation items
+  const navItems = [
+    { label: "Accueil", href: "/" },
+    { label: "À propos", href: "/#about" },
+    { label: "Services", href: "/#services" },
+    { label: "Processus", href: "/#process" },
+    { label: "Témoignages", href: "/#testimonials" },
   ];
 
   return (
-    <header className="border-b border-hotel-brown-light bg-hotel-brown">
-      <div className="container flex h-14 items-center justify-between px-2 md:px-8">
-        <Link to="/" className="flex items-center">
-          <span className="text-lg md:text-xl font-semibold text-hotel-brown-light tracking-tight">{COMPANY_INFO.name}</span>
-        </Link>
-        <nav className="hidden md:flex items-center gap-10">
-          {navigation.map((item) => (
+    <header className="fixed w-full bg-hotel-navy/95 z-50">
+      <div className="container mx-auto flex justify-between items-center py-4 px-4">
+        <div className="logo">
+          <Link to="/">
+            <img src="/assets/logo.svg" alt="TerangaConsult" className="h-12" />
+          </Link>
+        </div>
+        
+        {/* Menu navigation desktop */}
+        <nav className="hidden md:flex items-center space-x-6">
+          {navItems.map((item, index) => (
             <Link 
-              key={item.name}
-              to={item.path}
-              className={`relative text-base font-sans font-medium px-1 py-0.5 transition-all duration-200
-                ${isActive(item.path)
-                  ? 'text-hotel-brown-light after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-0.5 after:bg-hotel-brown-light after:rounded-full after:opacity-90 after:scale-x-100 after:transition-transform hover:text-hotel-gold hover:-translate-y-0.5 hover:scale-105'
-                  : 'text-hotel-brown-light hover:text-hotel-gold hover:-translate-y-0.5 hover:scale-105 after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-0.5 after:bg-hotel-gold after:rounded-full after:opacity-0 hover:after:opacity-80 hover:after:scale-x-100 after:transition-all'}
-              `}
-              style={{transitionProperty: 'color, background, transform'}}
+              key={index} 
+              to={item.href}
+              className="text-white hover:text-hotel-gold transition-colors"
             >
-              {item.name}
+              {item.label}
             </Link>
           ))}
-          <Button variant="outline" className="ml-6 border border-hotel-brown-light text-hotel-brown-light font-sans text-sm rounded-lg px-5 py-1.5 bg-transparent hover:bg-hotel-brown-light hover:text-hotel-brown transition-all duration-200 shadow-none" asChild>
-            <Link to="/contact">Nous contacter</Link>
-          </Button>
+          <Link to="/#contact" className="bg-hotel-gold text-hotel-navy px-6 py-2 rounded-lg ml-4">
+            Contactez-nous
+          </Link>
         </nav>
-        <button 
-          className="md:hidden rounded p-1 text-hotel-brown-light bg-hotel-brown/80"
-          onClick={() => {
-            if (isNavOpen) {
-              setIsAnimating(true);
-              setTimeout(() => {
-                setIsNavOpen(false);
-                setIsAnimating(false);
-              }, 400);
-            } else {
-              setIsNavOpen(true);
-            }
-          }}
-        >
-          {isNavOpen ? (
-            <X className="h-6 w-6 stroke-1" />
-          ) : (
-            <Menu className="h-6 w-6 stroke-1" />
-          )}
-        </button>
+        
+        {/* Menu burger pour mobile */}
+        <div className="md:hidden flex items-center">
+          <button 
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-white focus:outline-none"
+            aria-label="Menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              {menuOpen ? 
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /> :
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              }
+            </svg>
+          </button>
+        </div>
       </div>
-      {(isNavOpen || isAnimating) && (
-        <div className={`md:hidden fixed left-0 right-0 top-0 z-40 bg-hotel-navy w-full max-w-full shadow-2xl rounded-b-2xl overflow-hidden ${isNavOpen && !isAnimating ? 'animate-slideDown' : 'animate-slideUp'}`}>
-          <div className="flex items-center justify-between px-6 py-4 border-b border-hotel-gold">
-            <span />
-            <button 
-              className="rounded p-1" style={{color:'#f7c873', background:'rgba(247,200,115,0.08)'}} onClick={() => {
-                setIsAnimating(true);
-                setTimeout(() => {
-                  setIsNavOpen(false);
-                  setIsAnimating(false);
-                }, 400);
-              }}>
-              <X className="h-6 w-6 stroke-1" />
-            </button>
-          </div>
-          <nav className="flex flex-col items-center justify-center flex-1 gap-8 py-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={`relative text-lg font-sans font-medium px-1 py-1 transition-all duration-200
-                  ${isActive(item.path)
-                    ? 'text-hotel-gold after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-0.5 after:bg-hotel-gold after:rounded-full after:opacity-90 after:scale-x-100 after:transition-transform'
-                    : 'text-white hover:text-hotel-gold hover:-translate-y-1 hover:scale-105 after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-0.5 after:bg-hotel-gold after:rounded-full after:opacity-0 hover:after:opacity-80 hover:after:scale-x-100 after:transition-all'}
-                `}
-                style={{transitionProperty: 'color, background, transform'}}
-                onClick={() => setIsNavOpen(false)}
+      
+      {/* Menu mobile */}
+      {menuOpen && (
+        <div className="md:hidden bg-hotel-navy/95 py-4 px-4">
+          <nav className="flex flex-col space-y-4">
+            {navItems.map((item, index) => (
+              <Link 
+                key={index} 
+                to={item.href} 
+                className="text-white hover:text-hotel-gold transition-colors"
+                onClick={() => setMenuOpen(false)}
               >
-                {item.name}
+                {item.label}
               </Link>
             ))}
-            <Button variant="outline" className="mt-8 border border-hotel-gold text-hotel-gold font-sans text-base rounded-lg px-7 py-2 bg-transparent hover:bg-hotel-gold hover:text-hotel-navy transition-all duration-200 shadow-none" asChild>
-              <Link to="/contact" onClick={() => setIsNavOpen(false)}>
-                Nous contacter
-              </Link>
-            </Button>
+            <Link 
+              to="/#contact" 
+              className="bg-hotel-gold text-hotel-navy px-6 py-2 rounded-lg inline-block text-center"
+              onClick={() => setMenuOpen(false)}
+            >
+              Contactez-nous
+            </Link>
           </nav>
         </div>
       )}

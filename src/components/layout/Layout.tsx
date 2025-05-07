@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
@@ -11,7 +10,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 pt-24">
         {children}
       </main>
       <Footer />
