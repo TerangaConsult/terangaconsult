@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="text-sm text-white/70">
             © {new Date().getFullYear()} TerangaConsult. Tous droits réservés.
           </div>
-          <div className="flex gap-6 mt-4 md:mt-0">
+          <div className="flex flex-col items-center gap-2 mt-4 md:flex-row md:gap-6 md:mt-0">
             <Link to="/mentions-legales" className="text-sm text-white/70 hover:text-white">Mentions légales</Link>
             <Link to="/confidentialite" className="text-sm text-white/70 hover:text-white">Politique de confidentialité</Link>
             <Link to="/cgv" className="text-sm text-white/70 hover:text-white">CGV</Link>
