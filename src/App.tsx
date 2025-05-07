@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Layout from "./components/layout/Layout";
+import ScrollToTop from "./components/utils/ScrollToTop";
 import LandingPage from "./pages/LandingPage";
 import MentionsLegales from "./pages/MentionsLegales";
 import Confidentialite from "./pages/Confidentialite";
@@ -22,6 +23,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Layout><LandingPage /></Layout>} />
             <Route path="/mentions-legales" element={<Layout><MentionsLegales /></Layout>} />

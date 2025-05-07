@@ -8,7 +8,7 @@ const Confidentialite = () => (
       <title>Politique de confidentialité - TerangaConsult</title>
       <meta name="description" content="Politique de confidentialité de TerangaConsult : collecte, utilisation, partage et protection de vos données personnelles." />
     </Helmet>
-      <main className="bg-white text-primary min-h-screen pt-24 pb-16">
+      <main className="bg-white text-primary min-h-screen pt-32 pb-16">
         <div className="container mx-auto px-4 max-w-3xl">
           <h1 className="font-playfair text-3xl md:text-4xl text-secondary mb-8">Politique de confidentialité</h1>
           <section className="mb-8">

@@ -5,6 +5,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ProcessSection from "@/components/sections/ProcessSection";
+import CaseStudySection from "@/components/sections/CaseStudySection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import ContactSection from "@/components/sections/ContactSection";
 
@@ -35,6 +36,9 @@ const LandingPage = () => {
       
       {/* Processus de Travail */}
       <ProcessSection />
+      
+      {/* Études de Cas */}
+      <CaseStudySection />
       
       {/* Témoignages */}
       <TestimonialsSection />
