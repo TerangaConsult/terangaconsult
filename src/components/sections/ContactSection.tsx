@@ -106,8 +106,8 @@ const ContactSection = () => {
           <div className="flex flex-col md:flex-row justify-between items-center mt-12 gap-8">
             <div>
               <div className="text-xl font-bold text-primary mb-2">TerangaConsult</div>
-              <div className="text-primary/70">contact@terangaconsult.com</div>
-              <div className="text-primary/70">+221 77 123 45 67</div>
+              <div className="text-primary/70">terangaconsult.com@gmail.com</div>
+              <div className="text-primary/70">+32 485 88 00 90</div>
             </div>
             <div className="flex gap-4">
               <a href="#" className="text-primary text-2xl">
