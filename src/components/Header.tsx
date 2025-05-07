@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
@@ -7,21 +6,21 @@ const Header = () => {
 
   // Navigation items
   const navItems = [
-    { label: "Accueil", href: "/" },
-    { label: "À propos", href: "/#about" },
-    { label: "Services", href: "/#services" },
-    { label: "Processus", href: "/#process" },
-    { label: "Témoignages", href: "/#testimonials" },
+    { label: "Accueil", href: "#hero" },
+    { label: "À propos", href: "#about" },
+    { label: "Services", href: "#services" },
+    { label: "Processus", href: "#process" },
+    { label: "Témoignages", href: "#testimonials" },
   ];
 
-  // Variants pour le drawer
+  // Drawer variants
   const drawerVariants = {
     closed: { x: '100%', opacity: 0 },
     open: { x: 0, opacity: 1, transition: { type: 'spring', stiffness: 400, damping: 35 } },
     exit: { x: '100%', opacity: 0, transition: { duration: 0.25 } }
   };
 
-  // Overlay
+  // Overlay variants
   const overlayVariants = {
     closed: { opacity: 0 },
     open: { opacity: 0.5, transition: { duration: 0.2 } },
@@ -32,25 +31,25 @@ const Header = () => {
     <header className="fixed w-full bg-hotel-navy/95 z-50">
       <div className="container mx-auto flex justify-between items-center py-4 px-4">
         <div className="logo">
-          <Link to="/">
+          <a href="#hero">
             <img src="/assets/logo.svg" alt="TerangaConsult" className="h-12" />
-          </Link>
+          </a>
         </div>
         
         {/* Menu navigation desktop */}
         <nav className="hidden md:flex items-center space-x-6">
           {navItems.map((item, index) => (
-            <Link 
+            <a 
               key={index} 
-              to={item.href}
+              href={item.href} 
               className="text-white hover:text-hotel-gold transition-colors"
             >
               {item.label}
-            </Link>
+            </a>
           ))}
-          <Link to="/#contact" className="bg-hotel-gold text-hotel-navy px-6 py-2 rounded-lg ml-4">
+          <a href="#contact" className="bg-hotel-gold text-hotel-navy px-6 py-2 rounded-lg ml-4">
             Contactez-nous
-          </Link>
+          </a>
         </nav>
         
         {/* Menu burger pour mobile */}
@@ -67,7 +66,7 @@ const Header = () => {
         </div>
       </div>
       
-      {/* Drawer mobile */}
+      {/* Menu mobile avec animation drawer */}
       <AnimatePresence>
         {menuOpen && (
           <>
@@ -104,22 +103,22 @@ const Header = () => {
               </div>
               <nav className="flex flex-col space-y-4 px-6 mt-4">
                 {navItems.map((item, index) => (
-                  <Link
+                  <a
                     key={index}
-                    to={item.href}
+                    href={item.href}
                     className="text-white text-lg hover:text-hotel-gold transition-colors"
                     onClick={() => setMenuOpen(false)}
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 ))}
-                <Link
-                  to="/#contact"
+                <a
+                  href="#contact"
                   className="bg-hotel-gold text-hotel-navy px-6 py-2 rounded-lg inline-block text-center mt-4"
                   onClick={() => setMenuOpen(false)}
                 >
                   Contactez-nous
-                </Link>
+                </a>
               </nav>
             </motion.div>
           </>
@@ -129,4 +128,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header; 

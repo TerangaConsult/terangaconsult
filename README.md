@@ -1,80 +1,84 @@
-# TerangaConsult - Site Web
+# TerangaConsult - Site vitrine
 
-## Présentation
+Site vitrine de TerangaConsult, expert en consulting hôtelier et marketing digital au Sénégal. Solutions sur-mesure pour hôtels, lodges et maisons d'hôtes.
 
-Ce site web est une landing page optimisée pour TerangaConsult, cabinet de consulting hôtelier et marketing digital au Sénégal. La page a été conçue pour offrir une expérience utilisateur fluide et concentrer l'attention sur les services essentiels proposés par TerangaConsult.
+## Structure du projet
 
-## Structure du Site
+Le projet est organisé selon une architecture modulaire et maintenable :
 
-Le site a été simplifié en une landing page unique avec plusieurs sections :
-
-1. **Hero** - Présentation principale et appels à l'action
-2. **À Propos** - Présentation concise de TerangaConsult et chiffres clés
-3. **Services** - Les 3 services principaux avec description et points clés
-4. **Processus** - Les 4 étapes de l'accompagnement client
-5. **Témoignages** - Ce que disent les clients avec résultats chiffrés
-6. **Contact** - Formulaire simplifié et informations de contact
-
-Les pages légales (Mentions Légales, Politique de Confidentialité, CGV) sont accessibles depuis le footer.
+```
+src/
+├── components/         # Composants réutilisables
+│   ├── Header.tsx      # En-tête avec navigation
+│   ├── Footer.tsx      # Pied de page
+│   ├── sections/       # Sections de la landing page
+│   │   ├── HeroSection.tsx
+│   │   ├── AboutSection.tsx
+│   │   ├── ServicesSection.tsx
+│   │   ├── ProcessSection.tsx
+│   │   ├── TestimonialsSection.tsx
+│   │   └── ContactSection.tsx
+│   │
+│   └── ui/             # Composants UI réutilisables
+│       └── BackToTop.tsx
+│
+├── pages/              # Pages du site
+│   ├── LandingPage.tsx # Page d'accueil principale
+│   ├── MentionsLegales.tsx
+│   ├── Confidentialite.tsx
+│   ├── Cgv.tsx
+│   └── NotFound.tsx
+│
+├── hooks/              # Hooks personnalisés
+│   └── useSmoothScroll.ts
+│
+├── lib/                # Utilitaires et constantes
+│   └── constants.ts
+│
+├── netlify/functions/  # Fonctions serverless Netlify
+│   └── sendMail.js
+│
+└── App.tsx             # Point d'entrée principal
+```
 
 ## Fonctionnalités
 
-- **Navigation fluide** - Défilement smooth scroll entre les sections
-- **Formulaire de contact** - Intégré directement dans la landing page
-- **Design responsive** - Optimisé pour tous les appareils
-- **Bouton "Retour en haut"** - Pour faciliter la navigation sur mobile
-- **Redirections** - Les anciennes URLs sont redirigées vers les sections correspondantes
+- **Landing page unique** avec sections modulaires et facilement modifiables
+- **Menu mobile** avec animation fluide en mode drawer (tiroir latéral)
+- **Formulaire de contact** fonctionnel avec intégration Netlify Functions
+- **Design responsive** optimisé pour mobile, tablette et desktop
+- **Animation fluide** entre les sections avec smooth scroll
+- **Pages légales** accessibles depuis le footer
+- **Optimisation SEO** avec méta-tags et structure sémantique
 
 ## Technologies utilisées
 
-- React
-- TypeScript
-- Tailwind CSS
-- React Router
-- React Helmet (pour le SEO)
-- React Icons
+- **React** - Bibliothèque front-end
+- **TypeScript** - Typage statique pour JavaScript
+- **Tailwind CSS** - Framework CSS utilitaire
+- **Framer Motion** - Animations fluides
+- **React Router** - Navigation entre les pages
+- **React Icons** - Icônes vectorielles
+- **Netlify Functions** - Backend serverless pour le formulaire
+- **Vite** - Build tool et serveur de développement
 
-## Installation et développement
+## Développement local
 
 1. Cloner le dépôt
-   ```
-   git clone [URL du dépôt]
-   ```
-
-2. Installer les dépendances
-   ```
-   npm install
-   ```
-
-3. Lancer le serveur de développement
-   ```
-   npm run dev
-   ```
-
-4. Construire pour la production
-   ```
-   npm run build
-   ```
+2. Installer les dépendances : `npm install`
+3. Créer un fichier `.env` avec les variables requises (voir `.env.example`)
+4. Démarrer le serveur de développement : `npm run dev`
+5. Pour tester les fonctions Netlify : `npm run netlify`
 
 ## Déploiement
 
-Le site est configuré pour être déployé sur Netlify. Le fichier `netlify.toml` définit les redirections pour les anciennes URLs.
+Le site est automatiquement déployé sur Netlify à chaque push sur la branche main.
 
-## Structure des fichiers principaux
+## Crédits
 
-- `src/pages/LandingPage.tsx` - Composant principal de la landing page
-- `src/hooks/useSmoothScroll.ts` - Hook pour le défilement fluide
-- `src/components/ui/BackToTop.tsx` - Composant de bouton "Retour en haut"
-- `netlify.toml` - Configuration Netlify et redirections
+- Design et développement : TerangaConsult
+- Images : Tous droits réservés
 
-## Maintenance
+## Licence
 
-Pour mettre à jour le contenu du site, modifiez directement le fichier `src/pages/LandingPage.tsx`. Chaque section est clairement délimitée par des commentaires pour faciliter la maintenance.
-
-## Contact
-
-Pour toute question concernant le site, contactez l'équipe de développement à [email@example.com].
-
----
-
-© 2024 TerangaConsult
+Tous droits réservés © 2024 TerangaConsult
