@@ -6,7 +6,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-primary/60 to-primary/10 z-10"></div>
       <div className="absolute inset-0 bg-cover bg-center" 
             style={{ backgroundImage: "url('/assets/consulting-laptop-pool.jpg')" }}></div>
-      <div className="container mx-auto px-6 md:px-8 relative z-20 py-16 md:py-24">
+      <div className="container mx-auto px-6 md:px-8 relative z-20 pt-24 pb-16">
         <div className="max-w-2xl mx-auto md:mx-0">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Cabinet de consulting pour hôteliers au Sénégal

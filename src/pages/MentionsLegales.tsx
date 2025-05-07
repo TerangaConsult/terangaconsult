@@ -8,9 +8,9 @@ const MentionsLegales = () => (
       <title>Mentions légales - TerangaConsult</title>
       <meta name="description" content="Mentions légales du site TerangaConsult : éditeur, hébergeur, propriété intellectuelle, données personnelles et responsabilité." />
     </Helmet>
-      <main className="bg-white text-hotel-navy min-h-screen py-16">
+      <main className="bg-white text-primary min-h-screen pt-24 pb-16">
         <div className="container mx-auto px-4 max-w-3xl">
-          <h1 className="font-playfair text-3xl md:text-4xl text-hotel-gold mb-8">Mentions légales</h1>
+          <h1 className="font-playfair text-3xl md:text-4xl text-secondary mb-8">Mentions légales</h1>
           <section className="mb-8">
             <h2 className="font-semibold text-lg mb-2">Éditeur du site</h2>
             <p>Ce site est édité par <strong>TerangaConsult</strong>, société de conseil en hôtellerie et marketing digital.<br />
@@ -26,7 +26,7 @@ const MentionsLegales = () => (
             <h2 className="font-semibold text-lg mb-2">Hébergement</h2>
             <p>Ce site est hébergé par Netlify, Inc.<br />
             2325 3rd Street, Suite 296, San Francisco, CA 94107, États-Unis<br />
-            <a href="https://www.netlify.com" className="text-hotel-gold underline">www.netlify.com</a></p>
+            <a href="https://www.netlify.com" className="text-secondary underline">www.netlify.com</a></p>
           </section>
           <section className="mb-8">
             <h2 className="font-semibold text-lg mb-2">Propriété intellectuelle</h2>
@@ -34,7 +34,7 @@ const MentionsLegales = () => (
           </section>
           <section className="mb-8">
             <h2 className="font-semibold text-lg mb-2">Données personnelles</h2>
-            <p>Les informations recueillies via les formulaires sont destinées exclusivement à TerangaConsult pour la gestion de vos demandes. Conformément à la loi, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ce droit, contactez-nous à l'adresse <a href="mailto:terangaconsult.com@gmail.com" className="text-hotel-gold underline">terangaconsult.com@gmail.com</a>.</p>
+            <p>Les informations recueillies via les formulaires sont destinées exclusivement à TerangaConsult pour la gestion de vos demandes. Conformément à la loi, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ce droit, contactez-nous à l'adresse <a href="mailto:terangaconsult.com@gmail.com" className="text-secondary underline">terangaconsult.com@gmail.com</a>.</p>
           </section>
           <section>
             <h2 className="font-semibold text-lg mb-2">Responsabilité</h2>
