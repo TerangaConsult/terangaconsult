@@ -13,7 +13,7 @@ const CaseStudySection = () => {
           {/* Image (sera à gauche sur desktop, en haut sur mobile) */}
           <div className="md:w-1/2">
             <img 
-              src="/assets/placeholder-case-study.jpg" // Remplacez par une vraie image
+              src="/assets/etudedecas.jpg"
               alt="Exemple de site client TerangaConsult" 
               className="w-full h-64 md:h-full object-cover"
             />
@@ -22,10 +22,10 @@ const CaseStudySection = () => {
           {/* Contenu texte */}
           <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
             <h3 className="text-2xl font-bold text-primary mb-3">
-              Hôtel Le Lagon Bleu : +45% de Réservations Directes
+              Hôtel Le Clos des papillons : +45% de Réservations Directes
             </h3>
             <p className="text-text-secondary mb-4 text-sm">
-              L'Hôtel Le Lagon Bleu, un établissement de charme en Petite Côte, souffrait d'une faible visibilité en ligne et d'une forte dépendance aux OTAs.
+              L'Hôtel Le Clos des papillons, un établissement de charme en Petite Côte, souffrait d'une faible visibilité en ligne et d'une forte dépendance aux OTAs.
             </p>
             <p className="text-text-secondary mb-6 text-sm">
               Après un audit complet et la refonte de leur site web axée sur la conversion, couplée à une stratégie SEO locale et une campagne Google Ads ciblée, nous avons observé des résultats significatifs en 6 mois.
